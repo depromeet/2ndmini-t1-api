@@ -1,0 +1,9 @@
+{
+    "type":"object",
+    "properties":{
+        "nickname":{"type":"string"},
+        "score":{"type":"number"},
+        "stage":{"type":"number"}
+    },
+    "title":"Input"
+}

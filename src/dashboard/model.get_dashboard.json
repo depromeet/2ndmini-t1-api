@@ -1,0 +1,24 @@
+{
+    "type":"object",
+    "properties":{
+        "timestamp":{"type":"string","description": "datetime, ie) YYYYMMDDhhmmss"},
+        "data":{
+            "type":"array",
+            "description": "Output of Top 5 user's data.",
+            "items":{
+                
+                
+                    "type": "object",
+                    "properties":{
+                        "nickname":{"type":"string"},
+                        "score":{"type":"number"},
+                        "stage":{"type":"number"}
+                    }
+                
+                
+            }
+
+        }
+    },
+    "title":"Response 200"
+}
