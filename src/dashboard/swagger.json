@@ -1,0 +1,127 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "version-1.0.2",
+    "title": "Patience_Of_Dashboard"
+  },
+  "host": "<HOST IP>",
+  "basePath": "/alpha",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/GetDashboard"
+            }
+          }
+        }
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "DashboardExceptEmail",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DashboardExceptEmail"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/DashboardResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DashboardResponse": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "description": "datetime, ie) YYYYMMDDhhmmss"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nickname": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              },
+              "stage": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      },
+      "title": "Response 200"
+    },
+    "GetDashboard": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "description": "datetime, ie) YYYYMMDDhhmmss"
+        },
+        "data": {
+          "type": "array",
+          "description": "Output of Top 5 user's data.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nickname": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              },
+              "stage": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      },
+      "title": "Response 200"
+    },
+    "DashboardExceptEmail": {
+      "type": "object",
+      "properties": {
+        "nickname": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "stage": {
+          "type": "number"
+        }
+      },
+      "title": "Input"
+    }
+  }
+}
